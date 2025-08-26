@@ -1,3 +1,4 @@
+
 import java.util.Vector;
 
 public class Estudiante {
@@ -8,17 +9,25 @@ public class Estudiante {
 	private int edad;
 	private int dni;
 	private int creditosAprobados;
-	private Vector<String> cursos;
+	private double promedioGeneral;
+	private Vector<Curso> cursos;
+	
+	//Atributos de clase
+	private static int contadorEstudiantes = 0;
+	
 	
 	public Estudiante(String nombreEstudiante, String apellidoEstudiante, String carrera, 
-			int edad, int dni, int creditosAprobados) {
+			int edad, int dni, int creditosAprobados, double promedioGeneral) {
 		this.nombreEstudiante = nombreEstudiante;
 		this.apellidoEstudiante = apellidoEstudiante;
 		this.carrera = carrera;
 		this.edad = edad;
 		this.dni = dni;
 		this.creditosAprobados = creditosAprobados;
+		this.setPromedioGeneral(promedioGeneral);
 		cursos = new Vector<>();
+        contadorEstudiantes++;
+
 		
 	}
 	
@@ -65,6 +74,50 @@ public class Estudiante {
 	public void setNombreEstudiante(String nombreEstudiante) {
 		this.nombreEstudiante = nombreEstudiante;
 	}
+
+	public double getPromedioGeneral() {
+		return promedioGeneral;
+	}
+
+	public void setPromedioGeneral(double promedioGeneral) {
+		this.promedioGeneral = promedioGeneral;
+	}
+	
+    // Métodos
+    public void inscribirseCurso(Curso curso) {
+        if (!cursos.contains(curso)) {
+            cursos.add(curso);
+            System.out.println(nombreEstudiante + " se inscribió en el curso: " + curso.getNombreCurso());
+        } else {
+            System.out.println("El estudiante ya está inscrito en este curso.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Información del Estudiante" + "\n_________________"
+                + "\nNombre: " + nombreEstudiante + " " + apellidoEstudiante
+                + "\nCarrera: " + carrera
+                + "\nEdad: " + edad
+                + "\nDNI: " + dni
+                + "\nCréditos Aprobados: " + creditosAprobados
+                + "\nPromedio General: " + promedioGeneral;
+    }
+
+    public void mostrarInformacion() {
+        System.out.println(toString());
+        System.out.println("\nCursos inscritos:");
+        if (cursos.isEmpty()) {
+            System.out.println("No tiene cursos inscritos.");
+        } else {
+            int i = 1;
+            for (Curso c : cursos) {
+                System.out.println("Curso N° " + i + ": " + c.toString());
+                i++;
+            }
+        }
+    }
 	
 	
 }
+
