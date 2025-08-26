@@ -1,0 +1,8 @@
+Acá se subirán las carpetas de java relacionadas a las actividades
+
+- ACTIVIDADES
+  - ACT1
+    - Archivos de la act1 etc
+
+De preferencia subir la carpeta entera que te da java para tu proyecto java
+En caso no se pueda solo poner el código c:
