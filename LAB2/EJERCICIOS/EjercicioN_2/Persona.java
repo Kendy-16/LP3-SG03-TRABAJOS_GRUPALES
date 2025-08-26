@@ -3,14 +3,12 @@ public abstract class Persona {
     protected String nombre;
     protected String apellido;
     protected int dni;
-    protected String correo;
 
     // Constructor
-    public Persona(String nombre, String apellido, int dni, String correo) {
+    public Persona(String nombre, String apellido, int dni) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
-        this.correo = correo;
     }
 
     // Getters y Setters
@@ -33,13 +31,6 @@ public abstract class Persona {
     }
     public void setDni(int dni) {
         this.dni = dni;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-    public void setCorreo(String correo) {
-        this.correo = correo;
     }
 
     // Método abstracto
