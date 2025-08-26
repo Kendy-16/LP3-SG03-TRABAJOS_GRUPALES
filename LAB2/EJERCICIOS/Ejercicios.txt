@@ -1,0 +1,8 @@
+Acá se subirán las carpetas de java relacionadas a los ejercicios
+
+- EJERCICIOS
+  - EJ1
+    - Archivos del ej1 etc
+
+De preferencia subir la carpeta entera que te da java para tu proyecto java
+En caso no poder subir td la carpeta o asi, poner solo el codigo, ta bn c:
