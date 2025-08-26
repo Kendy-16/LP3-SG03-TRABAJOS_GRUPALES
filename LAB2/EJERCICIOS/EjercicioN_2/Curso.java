@@ -1,4 +1,4 @@
-package SistemaCursoUniversitario;
+import java.util.Vector;
 
 public class Curso {
 	//Atributos
@@ -6,19 +6,22 @@ public class Curso {
 	private int creditos;
 	private String docente;
 	private int capMaxEstudiantes;
-	private int estudiantesInscritos;
+	private Vector <Estudiante> estudiantesInscritos;
+	
+	private static int totalCursos = 0;
 	
 	
-	public Curso (String nombre, int creditos, String docente, int capMaxEstudiantes, int estudiantseInscritos) {
+	public Curso (String nombre, int creditos, String docente, int capMaxEstudiantes) {
 		this.nombre = nombre;
+		this.creditos = creditos;
+		this.docente = docente;
+		this.capMaxEstudiantes = capMaxEstudiantes;
+		estudiantesInscritos = new Vector<>();
+		++totalCursos;
+		
 	}
 	
-	public int getEstudiantesInscritos() {
-		return estudiantesInscritos;
-	}
-	public void setEstudiantesInscritos(int estudiantesInscritos) {
-		this.estudiantesInscritos = estudiantesInscritos;
-	}
+
 	public int getCapMaxEstudiantes() {
 		return capMaxEstudiantes;
 	}
@@ -44,5 +47,36 @@ public class Curso {
 		this.nombre = nombre;
 	}
 	
+	//Métodos
+	
+	public void agregarEstudiantes(Estudiante est) {
+		
+	}
+	
+	public void removerEstudiante(Estudiante est) {
+		
+	}
+	
+	public String toString() {
+        return "Información de Curso" + "\n_________________"
+                + "\nNombre: " + nombre + " " 
+                + "\nCréditos: " + creditos
+                + "\nDocente designado: " + docente
+                + "\nCapacidad máxima para estudiantes: " + capMaxEstudiantes;
+    }
+	
+	public void mostrarInformacion() {
+        System.out.println(toString());
+        System.out.println("\nCursos registrados:");
+        if (estudiantesInscritos.isEmpty()) {
+            System.out.println("No tiene estudiantes inscritos en este curso.");
+        } else {
+            int i = 1;
+            for (Estudiante e : estudiantesInscritos) {
+                System.out.println("Estudiante N° " + i + ": " + e.toString());
+                i++;
+            }
+        }		
+	}
 	
 }
