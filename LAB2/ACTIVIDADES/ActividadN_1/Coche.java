@@ -53,7 +53,7 @@ public class Coche {
 
     public void acelerar() {
         if (encendido) {
-            System.out.println(marca + " " + modelo + " está acelerando 🚗💨");
+            System.out.println(marca + " " + modelo + " está acelerando");
         } else {
             System.out.println("Primero encienda el coche.");
         }
@@ -72,7 +72,7 @@ public class Coche {
         if (anioFabricacion < 2010) {
             double descuento = precio * 0.10; // 10% de descuento
             precio -= descuento;
-            System.out.println("Se aplicó un descuento de 10%. Nuevo precio: $" + precio);
+            System.out.println("Se aplicó un descuento de 10%. Nuevo precio: S/." + precio);
         } else {
             System.out.println("No se aplicó descuento, el modelo no es antiguo.");
         }
