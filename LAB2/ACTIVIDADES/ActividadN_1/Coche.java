@@ -1,5 +1,3 @@
-package act1;
-
 public class Coche {
     // Atributos
     private String marca;
