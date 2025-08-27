@@ -1,5 +1,3 @@
-package GestionDeVideojuego;
-
 public class Arquero extends PersonajeBase {
     public Arquero(String nombre) { super(nombre); }
 
