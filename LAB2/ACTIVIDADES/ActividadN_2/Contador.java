@@ -9,7 +9,7 @@ public class Contador {
     // Constructor
     public Contador(int valor) {
         this.valor = valor;
-        Contador.acumulador += valor;
+        acumulador += valor;
     }
 
     // Método incrementar
