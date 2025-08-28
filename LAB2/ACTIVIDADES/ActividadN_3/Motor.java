@@ -1,7 +1,5 @@
 package L2;
-
 public class Motor {
-	
 	//Atributos
 	private int numMotor;
 	private int revolucionesPorMin;
@@ -34,7 +32,6 @@ public class Motor {
 	
 	public String toString() {
         return "Información del motor\n" + "Números de motores: "+ numMotor + "/nRevoluciones por minuto: " + revolucionesPorMin;
-
 	}
 
 }//Fin clase Motor
