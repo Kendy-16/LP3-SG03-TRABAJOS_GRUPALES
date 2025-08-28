@@ -33,6 +33,8 @@ public abstract class Persona {
         this.dni = dni;
     }
 
+
     // Método abstracto
     public abstract void mostrarInformacion();
 }
+
