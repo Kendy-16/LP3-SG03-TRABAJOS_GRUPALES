@@ -1,8 +1,12 @@
 public class ContadorTest {
     public static void main(String[] args) {
-        Contador c1 = new Contador(5);
-        Contador c2 = new Contador(10);
+        Contador c1, c2;
+        System.out.prinln(Contador.acumulador);
 
+        c1 = new Contador(4);
+        c2 = new Contador(16);
+        
+        c1.inc();
         c1.inc();
         c2.inc();
 
