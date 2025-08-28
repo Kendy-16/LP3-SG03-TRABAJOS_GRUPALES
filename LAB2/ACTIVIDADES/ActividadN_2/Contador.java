@@ -2,14 +2,14 @@ public class Contador {
     private int valor;
     static int acumulador = 0;
 
-    public static int acumulador{
+    public static int acumulador() {
         return acumulador;
     }
     
     // Constructor
     public Contador(int valor) {
         this.valor = valor;
-        acumulador += valor;
+        Contador.acumulador += valor;
     }
 
     // Método incrementar
