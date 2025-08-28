@@ -96,7 +96,5 @@ public class Automovil {
     
         Motor motorSeleccionado = motores.get(respuesta);
         return motorSeleccionado;
-		
-		
 	}
 }//Fin de clase Automovil
