@@ -1,41 +1,44 @@
 
 import java.util.Vector;
 
-public class Estudiante {
+//Estudiante.java
+import java.util.Vector;
+
+public class Estudiante extends Persona {
 	//Atributos
-	private String nombreEstudiante;
-	private String apellidoEstudiante;
+
 	private String carrera;
 	private int edad;
-	private int dni;
 	private int creditosAprobados;
 	private double promedioGeneral;
 	private Vector<Curso> cursos;
+	private Vector <String> listaEstudiantes;
 	
 	//Atributos de clase
 	private static int contadorEstudiantes = 0;
 	
 	
-	public Estudiante(String nombreEstudiante, String apellidoEstudiante, String carrera, 
-			int edad, int dni, int creditosAprobados, double promedioGeneral) {
-		this.nombreEstudiante = nombreEstudiante;
-		this.apellidoEstudiante = apellidoEstudiante;
+	public Estudiante(String nombre, String apellido, int dni,  String carrera, 
+			int edad, int creditosAprobados, double promedioGeneral) {
+		
+		super(nombre, apellido, dni);
+		
 		this.carrera = carrera;
 		this.edad = edad;
-		this.dni = dni;
 		this.creditosAprobados = creditosAprobados;
 		this.setPromedioGeneral(promedioGeneral);
 		cursos = new Vector<>();
+		listaEstudiantes = new Vector<>();
         contadorEstudiantes++;
 
 		
 	}
 	
 	//Setters y Getters
-	public Vector<String> getCursos() {
+	public Vector<Curso> getCursos() {
 		return cursos;
 	}
-	public void setCursos(Vector<String> cursos) {
+	public void setCursos(Vector<Curso> cursos) {
 		this.cursos = cursos;
 	}
 	public int getCreditosAprobados() {
@@ -44,12 +47,7 @@ public class Estudiante {
 	public void setCreditosAprobados(int creditosAprobados) {
 		this.creditosAprobados = creditosAprobados;
 	}
-	public int getDni() {
-		return dni;
-	}
-	public void setDni(int dni) {
-		this.dni = dni;
-	}
+
 	public int getEdad() {
 		return edad;
 	}
@@ -61,18 +59,6 @@ public class Estudiante {
 	}
 	public void setCarrera(String carrera) {
 		this.carrera = carrera;
-	}
-	public String getApellidoEstudiante() {
-		return apellidoEstudiante;
-	}
-	public void setApellidoEstudiante(String apellidoEstudiante) {
-		this.apellidoEstudiante = apellidoEstudiante;
-	}
-	public String getNombreEstudiante() {
-		return nombreEstudiante;
-	}
-	public void setNombreEstudiante(String nombreEstudiante) {
-		this.nombreEstudiante = nombreEstudiante;
 	}
 
 	public double getPromedioGeneral() {
@@ -87,16 +73,21 @@ public class Estudiante {
     public void inscribirseCurso(Curso curso) {
         if (!cursos.contains(curso)) {
             cursos.add(curso);
-            System.out.println(nombreEstudiante + " se inscribió en el curso: " + curso.getNombreCurso());
+            System.out.println(nombre + " se inscribió en el curso: " + curso.getNombre());
         } else {
             System.out.println("El estudiante ya está inscrito en este curso.");
         }
+
+    }
+    
+    public void registrarDatosEstudiantes() {
+    	
     }
 
     @Override
     public String toString() {
         return "Información del Estudiante" + "\n_________________"
-                + "\nNombre: " + nombreEstudiante + " " + apellidoEstudiante
+                + "\nNombre: " + nombre + " " + apellido
                 + "\nCarrera: " + carrera
                 + "\nEdad: " + edad
                 + "\nDNI: " + dni
@@ -117,7 +108,10 @@ public class Estudiante {
             }
         }
     }
-	
+    
+    public String datosBasicos() {
+        return("\nNombre:"+nombre+"\nApellidos: "+apellido);
+
+    }
 	
 }
-
