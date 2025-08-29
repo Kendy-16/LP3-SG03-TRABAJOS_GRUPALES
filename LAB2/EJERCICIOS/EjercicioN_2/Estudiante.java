@@ -77,10 +77,7 @@ public class Estudiante extends Persona {
         }
 
     }
-    
-    public void registrarDatosEstudiantes() {
-    	
-    }
+
 
     @Override
     public String toString() {
