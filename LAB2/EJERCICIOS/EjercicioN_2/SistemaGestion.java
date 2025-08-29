@@ -77,7 +77,7 @@ public class SistemaGestion {
         Profesor nuevo = new Profesor(nombre, apellido, dni, especialidad);
         profesores.add(nuevo);
 
-        System.out.println("✅ Profesor registrado correctamente.");
+        System.out.println("Profesor registrado correctamente.");
     }
 
     public void registrarCurso() {
