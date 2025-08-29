@@ -6,7 +6,7 @@ public class Curso {
 	//Atributos
 	private String nombre;
 	private int creditos;
-	//private String docente;
+	private String docente;
 	private final int capMaxEstudiantes = 16;
 	private Vector <Estudiante> estudiantesInscritos;
 	
