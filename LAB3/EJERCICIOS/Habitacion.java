@@ -1,86 +1,48 @@
-
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Habitacion {
-    private int dia;
-    private int mes;
-    private int anio;
+	
+    private int numero;
     private boolean disponible;
-    private double precio;
+    private double precioPorDia;
+    private List<Reserva> reservas;
 
-    public Habitacion(int dia, int mes, int anio, boolean disponibilidad, double precio) {
-        this.dia = dia;
-        this.mes = mes;
-        this.anio = anio;
-        this.disponible = disponibilidad;
-        this.precio = precio;
+    public Habitacion(int numero, double precioPorDia) {
+        this.numero = numero;
+        this.precioPorDia = precioPorDia;
+        this.disponible = true; 
+        this.reservas = new ArrayList<>();
     }
 
-    // Getters y setters
-    protected double getPrecio() {
-        return precio;
+    public int getNumero() {
+        return numero;
     }
 
-    protected void setPrecio(double precio) {
-        this.precio = precio;
+    public double getPrecioPorDia() {
+        return precioPorDia;
     }
 
-    protected boolean isDisponible() {
+    public boolean isDisponible() {
         return disponible;
     }
 
-    protected void setDisponible(boolean disponible) {
+    public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
 
-    protected int getAnio() {
-        return anio;
+    public void agregarReserva(Reserva reserva) {
+        reservas.add(reserva);
+        this.disponible = false;
     }
 
-    protected void setAnio(int anio) {
-        this.anio = anio;
+    public List<Reserva> getReservas() {
+        return reservas;
     }
 
-    protected int getMes() {
-        return mes;
+    @Override
+    public String toString() {
+        return "Habitación N° " + numero + " | Precio: $" + precioPorDia +
+               " | Estado: " + (disponible ? "Disponible" : "Ocupada");
     }
-
-    protected void setMes(int mes) {
-        this.mes = mes;
-    }
-
-    protected int getDia() {
-        return dia;
-    }
-
-    protected void setDia(int dia) {
-        this.dia = dia;
-    }
-
-    // Método para calcular días de hospedaje
-    protected long diasHospedaje(int diaSalida, int mesSalida, int anioSalida) {
-        LocalDate fechaEntrada = LocalDate.of(anio, mes, dia);
-        LocalDate fechaSalida = LocalDate.of(anioSalida, mesSalida, diaSalida);
-        return ChronoUnit.DAYS.between(fechaEntrada, fechaSalida);
-    }
-    
-    //metodo calcular precio
-    
-    protected double calcularPrecio(int diaSalida, int mesSalida, int anioSalida) {
-    	long dias = diasHospedaje(diaSalida, mesSalida, anioSalida);
-    	return dias * precio;
-    }
-   
-    protected void mostrarReserva(int diaSalida, int mesSalida, int anioSalida) {
-        long dias = diasHospedaje(diaSalida, mesSalida, anioSalida);
-        double costoTotal = dias * precio;
-
-        System.out.println("Habitación reservada desde: " + dia + "/" + mes + "/" + anio);
-        System.out.println("Hasta: " + diaSalida + "/" + mesSalida + "/" + anioSalida);
-        System.out.println("Días de hospedaje: " + dias);
-        System.out.println("Precio por día: $" + precio);
-        System.out.println("Costo total: $" + costoTotal);
-    }
-
 }
