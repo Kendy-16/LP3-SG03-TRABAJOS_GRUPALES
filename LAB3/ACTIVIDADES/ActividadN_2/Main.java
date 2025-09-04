@@ -13,3 +13,4 @@ public class Main {
         notifier.sendSMS("Hola, este es un SMS de prueba.");
         notifier.sendWhatsApp("Hola, este es un WhatsApp de prueba.");
     }
+}
