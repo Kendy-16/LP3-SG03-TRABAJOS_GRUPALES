@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.time.LocalDateTime;
 
 public class Reserva {
 	
@@ -7,31 +8,106 @@ public class Reserva {
     private Huesped huesped;
     private LocalDate fechaEntrada;
     private LocalDate fechaSalida;
+    private LocalDateTime fechaCheckIn;
+    private LocalDateTime fechaCheckOut;
+    private PoliticaCancelacion cancelacion;
 
     public Reserva(Habitacion habitacion, Huesped huesped, LocalDate fechaEntrada, LocalDate fechaSalida) {
-        this.habitacion = habitacion;
-        this.huesped = huesped;
-        this.fechaEntrada = fechaEntrada;
-        this.fechaSalida = fechaSalida;
+        this.setHabitacion(habitacion);
+        this.setHuesped(huesped);
+        this.setFechaEntrada(fechaEntrada);
+        this.setFechaSalida(fechaSalida);
+        this.setFechaCheckIn(fechaCheckIn);
+        this.setFechaCheckOut(fechaCheckOut);
+        this.setCancelacion(cancelacion);
 
-        habitacion.setDisponible(false);
+        //habitacion.setDisponible(false);
     }
 
     public long getDiasHospedaje() {
-        return ChronoUnit.DAYS.between(fechaEntrada, fechaSalida);
+        return ChronoUnit.DAYS.between(getFechaEntrada(), getFechaSalida());
     }
 
     public double calcularCosto() {
-        return getDiasHospedaje() * habitacion.getPrecioPorDia();
+        return getDiasHospedaje() * getHabitacion().getPrecioPorDia();
+    }
+    
+    public boolean cancelarReserva(PoliticaCancelacion cancelar) {
+    	if(cancelar.puedeCancelar(this)) {
+    		double penalizacion = cancelar.calcularPenalizacion(this);
+    		return true;
+    	}
+    	return false;
+    	
     }
 
     @Override
     public String toString() {
-        return "Reserva de " + huesped +
-               " | Habitación: " + habitacion.getNumero() +
-               " | Desde: " + fechaEntrada +
-               " | Hasta: " + fechaSalida +
+        return "Reserva de " + getHuesped() +
+               " | Habitación: " + getHabitacion().getNumero() +
+               " | Desde: " + getFechaEntrada() +
+               " | Hasta: " + getFechaSalida() +
                " | Días: " + getDiasHospedaje() +
+               " | Check-In: " + getFechaCheckIn()+
+               " | Check-Out: " + getFechaCheckOut()+
                " | Costo total: $" + calcularCosto();
     }
+   
+
+    //Getter y Setters
+	public LocalDate getFechaSalida() {
+		return fechaSalida;
+	}
+
+	public void setFechaSalida(LocalDate fechaSalida) {
+		this.fechaSalida = fechaSalida;
+	}
+
+	public LocalDate getFechaEntrada() {
+		return fechaEntrada;
+	}
+
+	public void setFechaEntrada(LocalDate fechaEntrada) {
+		this.fechaEntrada = fechaEntrada;
+	}
+
+	public Huesped getHuesped() {
+		return huesped;
+	}
+
+	public void setHuesped(Huesped huesped) {
+		this.huesped = huesped;
+	}
+
+	public Habitacion getHabitacion() {
+		return habitacion;
+	}
+
+	public void setHabitacion(Habitacion habitacion) {
+		this.habitacion = habitacion;
+	}
+
+	public LocalDateTime getFechaCheckOut() {
+		return fechaCheckOut;
+	}
+
+	public void setFechaCheckOut(LocalDateTime fechaCheckOut) {
+		this.fechaCheckOut = fechaCheckOut;
+	}
+
+	public LocalDateTime getFechaCheckIn() {
+		return fechaCheckIn;
+	}
+
+	public void setFechaCheckIn(LocalDateTime fechaCheckIn) {
+		this.fechaCheckIn = fechaCheckIn;
+	}
+
+	private PoliticaCancelacion getCancelacion() {
+		return cancelacion;
+	}
+
+	private void setCancelacion(PoliticaCancelacion cancelacion) {
+		this.cancelacion = cancelacion;
+	}
 }
