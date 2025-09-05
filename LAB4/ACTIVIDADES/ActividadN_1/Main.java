@@ -25,7 +25,7 @@ public class Main{
 
         // Depositar correctamente
         cuentaA.depositar(150);
-        System.out.println("\nDespués de depositar 150 a Ana: " + cuentaA.getSaldo());
+        System.out.println("\nDespués de depositar 150 a Kendy: " + cuentaA.getSaldo());
 
         // Intento de retirar mas que el saldo (SaldoInsuficienteException)
         try {
@@ -43,7 +43,7 @@ public class Main{
 
         // Retiro válido
         cuentaB.retirar(50);
-        System.out.println("\nDespués de retirar 50 de Luis: " + cuentaB.getSaldo());
+        System.out.println("\nDespués de retirar 50 de Ale: " + cuentaB.getSaldo());
 
         System.out.println("\nEstado final de cuentas:");
         System.out.println(cuentaA);
