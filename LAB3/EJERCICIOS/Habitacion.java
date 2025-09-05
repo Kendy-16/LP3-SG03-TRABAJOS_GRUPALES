@@ -1,43 +1,55 @@
-import java.util.ArrayList;
-import java.util.List;
 
-public class Habitacion {
+
+public abstract class Habitacion {
 	
     private int numero;
+    private String tipo;
     private double precioPorDia;
-    private List<Reserva> reservas;
-    private GestorDisponibilidadHabitacion gestorDisponibilidad;
 
-    public Habitacion(int numero, double precioPorDia) {
-        this.numero = numero;
-        this.precioPorDia = precioPorDia;
-        this.reservas = new ArrayList<>();
+
+    public Habitacion(int numero, String tipo, double precioPorDia) {
+        this.setNumero(numero);
+        this.setTipo(tipo);
+        this.setPrecioPorDia(precioPorDia);
     }
+    
+    public abstract double cacularPrecio(int dias);
+    public abstract boolean tieneServiciosEsenciales(); 
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public double getPrecioPorDia() {
-        return precioPorDia;
-    }
-
-    public List<Reserva> getReservas() {
-        return reservas;
-    }
-
-	public GestorDisponibilidadHabitacion getGestorDisponibilidad() {
-		return gestorDisponibilidad;
-	}
-
-	public void setGestorDisponibilidad(GestorDisponibilidadHabitacion gestorDisponibilidad) {
-		this.gestorDisponibilidad = gestorDisponibilidad;
-	}
 
     @Override
     public String toString() {
-        return "Habitación N° " + numero + " | Precio: $" + precioPorDia;
+        return "Habitación N° " + getNumero() + 
+        		"| Tipo de habitacion: " + getTipo() +
+        		" | Precio: $" + getPrecioPorDia();
     }
+    
+    //Setters y Getters
+
+	protected double getPrecioPorDia() {
+		return precioPorDia;
+	}
+
+	protected void setPrecioPorDia(double precioPorDia) {
+		this.precioPorDia = precioPorDia;
+	}
+
+
+	protected String getTipo() {
+		return tipo;
+	}
+
+	protected void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	protected int getNumero() {
+		return numero;
+	}
+
+	protected void setNumero(int numero) {
+		this.numero = numero;
+	}
 
 }
 
