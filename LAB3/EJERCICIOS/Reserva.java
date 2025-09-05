@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 public class Reserva {
 	
+	private final int id;
+	private String nombre;
     private Habitacion habitacion;
     private Huesped huesped;
     private LocalDate fechaEntrada;
@@ -12,8 +14,10 @@ public class Reserva {
     private LocalDateTime fechaCheckOut;
     private PoliticaCancelacion cancelacion;
 
-    public Reserva(Habitacion habitacion, Huesped huesped, LocalDate fechaEntrada, LocalDate fechaSalida) {
-        this.setHabitacion(habitacion);
+    public Reserva(int id, String nombre, Habitacion habitacion, Huesped huesped, LocalDate fechaEntrada, LocalDate fechaSalida) {
+        this.id = id;
+        this.nombre = nombre;
+    	this.setHabitacion(habitacion);
         this.setHuesped(huesped);
         this.setFechaEntrada(fechaEntrada);
         this.setFechaSalida(fechaSalida);
@@ -86,6 +90,7 @@ public class Reserva {
 	public void setHabitacion(Habitacion habitacion) {
 		this.habitacion = habitacion;
 	}
+	
 
 	public LocalDateTime getFechaCheckOut() {
 		return fechaCheckOut;
@@ -109,5 +114,17 @@ public class Reserva {
 
 	private void setCancelacion(PoliticaCancelacion cancelacion) {
 		this.cancelacion = cancelacion;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 }
