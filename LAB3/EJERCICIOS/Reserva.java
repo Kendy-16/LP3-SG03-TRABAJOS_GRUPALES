@@ -108,11 +108,11 @@ public class Reserva {
 		this.fechaCheckIn = fechaCheckIn;
 	}
 
-	private PoliticaCancelacion getCancelacion() {
+	public PoliticaCancelacion getCancelacion() {
 		return cancelacion;
 	}
 
-	private void setCancelacion(PoliticaCancelacion cancelacion) {
+	public void setCancelacion(PoliticaCancelacion cancelacion) {
 		this.cancelacion = cancelacion;
 	}
 
