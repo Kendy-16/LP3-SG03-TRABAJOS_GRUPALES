@@ -1,5 +1,5 @@
 public interface ServicioComida {
-	void soliciatComida();
+	void solicitarComida();
 	void entregaComida();
 	double obtenerPrecioComida(int cantidadPlatos);
 }
