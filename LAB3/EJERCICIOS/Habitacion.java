@@ -13,7 +13,7 @@ public abstract class Habitacion {
         this.setPrecioPorDia(precioPorDia);
     }
     
-    public abstract double cacularPrecio(int dias);
+    public abstract double calcularPrecio(int dias);
     public abstract boolean tieneServiciosEsenciales(); 
 
 
