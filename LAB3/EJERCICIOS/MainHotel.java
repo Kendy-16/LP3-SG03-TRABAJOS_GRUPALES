@@ -59,7 +59,7 @@ public class MainHotel {
         System.out.println("Reserva 3: " + reserva3);
         System.out.println();
 
-        // 4. Prpbando la disponibilidad de la habitación
+        // 4. Probando la disponibilidad de la habitación
         System.out.println("4. VERIFICANDO DISPONIBILIDAD:");
         System.out.println("==============================");
         
