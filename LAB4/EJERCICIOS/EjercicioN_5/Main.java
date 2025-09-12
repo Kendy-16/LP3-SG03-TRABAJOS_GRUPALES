@@ -5,7 +5,7 @@ class Main {
         int opcion;
         
         do {
-            System.out.println("\n=== SISTEMA DE GESTIÓN DE CONTACTOS ===");
+            System.out.println("\n____ SISTEMA DE GESTIÓN DE CONTACTOS ____");
             System.out.println("1. Agregar contacto");
             System.out.println("2. Modificar contacto");
             System.out.println("3. Eliminar contacto");
@@ -18,7 +18,7 @@ class Main {
             
             try {
                 opcion = scanner.nextInt();
-                scanner.nextLine(); // Limpiar buffer
+                scanner.nextLine(); 
                 
                 switch (opcion) {
                     case 1:
