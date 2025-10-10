@@ -24,7 +24,7 @@ public class Controlador {
 
             Matricula m = new Matricula(cursoSeleccionado, EstadoMatricula.EN_CURSO);
             estudiante.agregarMatricula(m);
-            vista.mostrarMensaje("✅ Matrícula realizada en el curso: " + cursoSeleccionado.getNombre());
+            vista.mostrarMensaje("Matrícula realizada en el curso: " + cursoSeleccionado.getNombre());
 
         } catch (ExcepcionMatricula e) {
             vista.mostrarError(e.getMessage());
@@ -37,7 +37,7 @@ public class Controlador {
         try {
             Matricula matricula = buscarMatriculaPorCurso(idCurso);
             if (matricula == null) {
-                throw new ExcepcionMatricula("❌ No estás matriculado en el curso con ID " + idCurso);
+                throw new ExcepcionMatricula("No estás matriculado en el curso con ID " + idCurso);
             }
             matricula.setEstado(nuevoEstado);
             vista.mostrarMensaje("🔄 Estado actualizado: " + matricula.getCurso().getNombre() + " -> " + nuevoEstado);
@@ -50,7 +50,7 @@ public class Controlador {
     }
 
     public void generarReporte() {
-        vista.mostrarMensaje("\n📘 Reporte de matrículas de " + estudiante.getNombreCompleto());
+        vista.mostrarMensaje("\nReporte de matrículas de " + estudiante.getNombreCompleto());
         int creditosAprobados = 0;
 
         for (EstadoMatricula estado : EstadoMatricula.values()) {
@@ -65,7 +65,7 @@ public class Controlador {
             }
         }
 
-        vista.mostrarMensaje("\n⭐ Créditos aprobados: " + creditosAprobados);
+        vista.mostrarMensaje("\nCréditos aprobados: " + creditosAprobados);
     }
 
     public void mostrarCursosDisponibles() {
