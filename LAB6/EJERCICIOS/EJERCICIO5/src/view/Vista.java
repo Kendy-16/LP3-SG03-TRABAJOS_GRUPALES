@@ -10,7 +10,7 @@ public class Vista {
     }
 
     public void mostrarError(String mensaje) {
-        System.err.println("⚠️ ERROR: " + mensaje);
+        System.err.println("ERROR: " + mensaje);
     }
 
     public void mostrarCursos(List<Curso> cursos) {
