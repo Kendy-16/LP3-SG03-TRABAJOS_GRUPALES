@@ -40,7 +40,7 @@ public class Controlador {
                 throw new ExcepcionMatricula("No estás matriculado en el curso con ID " + idCurso);
             }
             matricula.setEstado(nuevoEstado);
-            vista.mostrarMensaje("🔄 Estado actualizado: " + matricula.getCurso().getNombre() + " -> " + nuevoEstado);
+            vista.mostrarMensaje("Estado actualizado: " + matricula.getCurso().getNombre() + " -> " + nuevoEstado);
 
         } catch (ExcepcionMatricula e) {
             vista.mostrarError(e.getMessage());
@@ -72,7 +72,7 @@ public class Controlador {
         vista.mostrarCursos(cursosDisponibles);
     }
 
-    // 🔍 Métodos auxiliares (Responsabilidad única)
+    // Métodos auxiliares (Responsabilidad única)
     private Curso buscarCursoPorId(int id) {
         return cursosDisponibles.stream()
                 .filter(c -> c.getId() == id)
