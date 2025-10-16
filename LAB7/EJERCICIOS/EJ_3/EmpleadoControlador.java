@@ -3,11 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmpleadoControlador {
-    private EmpleadoModel model;
-    private EmpleadoView view;
+    private EmpleadoModelo model;
+    private EmpleadoVista view;
     private static final String ARCHIVO = "empleados.txt";
 
-    public EmpleadoController(EmpleadoModel model, EmpleadoView view) {
+    public EmpleadoController(EmpleadoModelo model, EmpleadoVista view) {
         this.model = model;
         this.view = view;
     }
@@ -56,7 +56,7 @@ public class EmpleadoControlador {
 
     public void agregarEmpleado(int numero, String nombre, double sueldo) {
         try {
-            // Verificar si el número ya existe
+            // ¿El numero existe?
             for (Empleado emp : model.getEmpleados()) {
                 if (emp.getNumero() == numero) {
                     view.mostrarError("Ya existe un empleado con el número: " + numero);
