@@ -62,4 +62,14 @@ public class RecetaDAO {
             System.out.println("Error al eliminar: " + e.getMessage());
         }
     }
+    //===============================PRUEBA=======================================
+    public void mostrarIngredientes() {
+      String sql = "SELECT nombre FROM ingrediente";
+      try(PrepareStatement pstmt = conn.PrepareStatement(sql)) {
+        pstmt.setInt(1, ingrediente_id);
+        rs = pstmt.executeQuery(sql);
+      }
+    }
+    //============================================================================
 }
+
