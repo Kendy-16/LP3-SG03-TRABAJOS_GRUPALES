@@ -8,7 +8,7 @@ public class Main {
         int opcion;
 
         do {
-            System.out.println("\n=== 🍽 SISTEMA DE RECETAS ===");
+            System.out.println("\n===  SISTEMA DE RECETAS ===");
             System.out.println("1. Insertar receta");
             System.out.println("2. Listar recetas");
             System.out.println("3. Actualizar receta");
@@ -257,5 +257,6 @@ public class Main {
         }
     }
 }
+
 
 
